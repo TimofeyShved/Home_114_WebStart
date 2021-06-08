@@ -12,19 +12,19 @@ import java.io.IOException;
 
 public class Main { // Java Web Start
 
-    static JFrame jFrame = getFrame();
-    static JPanel jPanel = new JPanel();
+    static JFrame jFrame = getFrame(); // создание форы
+    static JPanel jPanel = new JPanel(); // и панели
 
     public static void main(String[] args) {
-	    jFrame.add(jPanel);
-        ((JButton)jPanel.add(new JButton("submit"))).addActionListener(new ActionListener() {
+	    jFrame.add(jPanel); // панель на форму
+        ((JButton)jPanel.add(new JButton("submit"))).addActionListener(new ActionListener() { // из панели, кнопку с действием
             @Override
-            public void actionPerformed(ActionEvent e) {
+            public void actionPerformed(ActionEvent e) { // действие
                 try {
-                    FileOpenService service = (FileOpenService) ServiceManager.lookup("javax.jnlp.FileContents");
-                    FileContents fileContents =service.openFileDialog(".", new String[]{"txt"});
+                    FileOpenService service = (FileOpenService) ServiceManager.lookup("javax.jnlp.FileContents"); // открыть
+                    FileContents fileContents =service.openFileDialog(".", new String[]{"txt"}); // отобразить файлы данной категории
                     if (fileContents!=null){
-                        System.out.println(fileContents);
+                        System.out.println(fileContents); // вывод в кносоль 
                     }
                 } catch (UnavailableServiceException | IOException ex) {
                     ex.printStackTrace();
@@ -34,11 +34,11 @@ public class Main { // Java Web Start
 
     }
 
-    static JFrame getFrame(){
-        JFrame jFrame = new JFrame(){};
-        jFrame.setVisible(true);
-        jFrame.setBounds(750,250,500,500);
-        jFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    static JFrame getFrame(){ // наша форма
+        JFrame jFrame = new JFrame(){}; // новая
+        jFrame.setVisible(true); // видимость
+        jFrame.setBounds(750,250,500,500); // размеры
+        jFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // закрытие
         return jFrame;
     }
 }
