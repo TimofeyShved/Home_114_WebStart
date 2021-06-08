@@ -24,7 +24,7 @@ public class Main { // Java Web Start
                     FileOpenService service = (FileOpenService) ServiceManager.lookup("javax.jnlp.FileContents"); // открыть
                     FileContents fileContents =service.openFileDialog(".", new String[]{"txt"}); // отобразить файлы данной категории
                     if (fileContents!=null){
-                        System.out.println(fileContents); // вывод в кносоль 
+                        System.out.println(fileContents); // вывод в кносоль
                     }
                 } catch (UnavailableServiceException | IOException ex) {
                     ex.printStackTrace();
